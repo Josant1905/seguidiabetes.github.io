@@ -347,17 +347,17 @@ function actualizarGrafica() {
 
     name: "Glucosa",
 
-    // Valores que aparecerán permanentemente
-    text: valores.map(valor => `${valor} mg/dL`),
+    // // Valores que aparecerán permanentemente
+    // text: valores.map(valor => `${valor} mg/dL`),
 
     // Posición de las etiquetas
-    textposition: "top center",
+    // textposition: "top center",
 
-    // Estilo de las etiquetas
-    textfont: {
-        size: 11,
-        color: "#263445"
-    },
+    // // Estilo de las etiquetas
+    // textfont: {
+    //     size: 11,
+    //     color: "#263445"
+    // },
 
     line: {
         color: "#3478B8",
