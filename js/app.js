@@ -353,7 +353,22 @@ function actualizarGrafica() {
             size: 9
         }
     }];
-
+const zonaObjetivo = [
+    {
+        type: "rect",
+        xref: "paper",
+        x0: 0,
+        x1: 1,
+        yref: "y",
+        y0: 70,
+        y1: 130,
+        fillcolor: "rgba(34, 197, 94, 0.12)",
+        line: {
+            width: 0
+        },
+        layer: "below"
+    }
+];
     // 6. Configuración visual
     const layout = {
 
@@ -377,7 +392,7 @@ function actualizarGrafica() {
             b: 60,
             l: 60
         },
-
+        shapes: zonaObjetivo,
         autosize: true
     };
 
