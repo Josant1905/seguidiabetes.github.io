@@ -338,21 +338,36 @@ function actualizarGrafica() {
 
     // 5. Preparar serie de Plotly
     const serieGrafica = [{
-        x: fechas,
-        y: valores,
-        type: "scatter",
-        mode: "lines+markers",
-        name: "Glucosa",
+    x: fechas,
+    y: valores,
+    type: "scatter",
 
-        line: {
-            color: "#3478B8",
-            width: 3
-        },
+    // Mostrar línea, puntos y etiquetas
+    mode: "lines+markers+text",
 
-        marker: {
-            size: 9
-        }
-    }];
+    name: "Glucosa",
+
+    // Valores que aparecerán permanentemente
+    text: valores.map(valor => `${valor} mg/dL`),
+
+    // Posición de las etiquetas
+    textposition: "top center",
+
+    // Estilo de las etiquetas
+    textfont: {
+        size: 11,
+        color: "#263445"
+    },
+
+    line: {
+        color: "#3478B8",
+        width: 3
+    },
+
+    marker: {
+        size: 4
+    }
+}];
 const zonaObjetivo = [
     {
         type: "rect",
@@ -380,7 +395,8 @@ const zonaObjetivo = [
 
         yaxis: {
             title: "Glucosa (mg/dL)",
-            rangemode: "tozero"
+            rangemode: "tozero",
+            dtick: 25
         },
 
         paper_bgcolor: "#FFFFFF",
