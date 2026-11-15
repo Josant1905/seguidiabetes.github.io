@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/styles.css">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Diabetes Tracker</title>
+</head>
+
+
+<body>
+
+    <header class="header">
+        <h1>Diabetes Tracker</h1>
+        <p>Mi seguimiento de salud</p>
+    </header>
+
+    <div class="app-container">
+
+        <aside class="sidebar">
+            <h2>Menú</h2>
+
+            <nav>
+                <ul>
+                    <li>Dashboard</li>
+                    <li>Glucosa</li>
+                    <li>Alimentación</li>
+                    <li>Medicamentos</li>
+                    <li>Historial</li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+
+            
+            <section class="dashboard">
+
+                <h2>Resumen estadístico</h2>
+
+                <div class="metrics">
+                    <article class="metric-card">
+                    <h3>Última medición</h3>
+                    <p id="last-glucose">--</p>
+                    </article>
+                    <article class="metric-card">
+                        <h3>Promedio</h3>
+                        <p id="average-glucose">--</p>
+                    </article>
+
+                    <article class="metric-card">
+                        <h3>Mínimo</h3>
+                        <p id="min-glucose">--</p>
+                    </article>
+
+                    <article class="metric-card">
+                        <h3>Máximo</h3>
+                        <p id="max-glucose">--</p>
+                    </article>
+
+                    <article class="metric-card">
+                        <h3>Desviación estándar</h3>
+                        <p id="std-glucose">--</p>
+                    </article>
+
+                    <article class="metric-card">
+                        <h3>Mediciones</h3>
+                        <p id="measurement-count">0</p>
+                    </article>
+
+                </div>
+
+            </section>
+            
+            <section class="chart-section">
+                <h2>Tendencia de glucosa</h2>
+            <div class="chart-container">
+                <div id="glucose-chart"></div>
+            </div>             
+            </section>
+
+
+<section class="registration-section">
+
+    <div class="registration-header">
+        <h2>Registrar glucosa</h2>
+        <span>mg/dL</span>
+    </div>
+
+    <form id="glucose-form" class="registration-form">
+
+        <div class="form-group">
+            <label for="glucose-value">Glucosa</label>
+            <input
+                type="number"
+                id="glucose-value"
+                placeholder="Ej. 115"
+                min="1"
+                step="1"
+                required
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="glucose-date">Fecha</label>
+            <input
+                type="date"
+                id="glucose-date"
+                required
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="glucose-time">Hora</label>
+            <input
+                type="time"
+                id="glucose-time"
+                required
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="glucose-context">Contexto</label>
+            <select id="glucose-context" required>
+                <option value="">Seleccionar</option>
+                <option value="Ayuno">Ayuno</option>
+                <option value="Antes de comer">Antes de comer</option>
+                <option value="Después de comer">Después de comer</option>
+                <option value="Antes de dormir">Antes de dormir</option>
+                <option value="Otro">Otro</option>
+            </select>
+        </div>
+
+        <button type="submit" class="register-button">
+            <span>+ Guardar</span>
+        </button>
+
+    </form>
+
+</section>
+
+
+<section class="filters-section">
+
+    <h2>Filtros de mediciones</h2>
+
+    <div class="filters-container">
+
+        <div class="form-group">
+            <label for="filter-context">
+                Contexto
+            </label>
+
+            <select id="filter-context">
+                <option value="Todos">Todas las mediciones</option>
+                <option value="Ayuno">Ayuno</option>
+                <option value="Antes de comer">Antes de comer</option>
+                <option value="Después de comer">Después de comer</option>
+                <option value="Antes de dormir">Antes de dormir</option>
+                <option value="Otro">Otro</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="filter-start">
+                Fecha inicial
+            </label>
+
+            <input type="date" id="filter-start">
+        </div>
+
+        <div class="form-group">
+            <label for="filter-end">
+                Fecha final
+            </label>
+
+            <input type="date" id="filter-end">
+        </div>
+
+        <button type="button" id="clear-filters">
+            Limpiar filtros
+        </button>
+
+    </div>
+
+</section>
+
+
+        
+<section class="history-section">
+
+    <div class="history-header">
+        <div>
+            <h2>Últimas mediciones</h2>
+            <p>Historial de registros de glucosa</p>
+        </div>
+
+        <span class="history-label">Historial</span>
+    </div>
+
+    <div class="history-table-container">
+        <table class="history-table">
+
+            <thead>
+                <tr>
+                    <th>Fecha y hora</th>
+                    <th>Glucosa</th>
+                    <th>Contexto</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody id="glucose-history">
+                <!-- JavaScript genera las filas -->
+            </tbody>
+
+        </table>
+    </div>
+
+</section>
+
+
+        </main>
+
+    </div>
+
+    <script src="https://cdn.plot.ly/plotly-3.3.0.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
