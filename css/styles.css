@@ -1,0 +1,586 @@
+
+/* ==========================================
+   DIABETES TRACKER
+   CLINICAL DASHBOARD DESIGN SYSTEM
+========================================== */
+
+
+/* ==========================================
+   1. VARIABLES GLOBALES
+========================================== */
+
+:root {
+    --primary: #174B79;
+    --primary-dark: #10385D;
+    --primary-light: #EFF6FC;
+
+    --background: #F3F6FA;
+    --surface: #FFFFFF;
+
+    --text-primary: #263445;
+    --text-secondary: #64748B;
+
+    --border: #E1E7EF;
+
+    --radius: 12px;
+
+    --spacing: 20px;
+}
+
+
+/* ==========================================
+   2. RESET Y CONFIGURACIÓN GENERAL
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--background);
+    color: var(--text-primary);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* ==========================================
+   3. ENCABEZADO
+========================================== */
+
+.header {
+    background: var(--surface);
+    padding: 16px 28px;
+    border-bottom: 1px solid var(--border);
+}
+
+.header h1 {
+    color: var(--primary);
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.header p {
+    color: var(--text-secondary);
+    font-size: 13px;
+    margin-top: 2px;
+}
+
+
+/* ==========================================
+   4. ESTRUCTURA PRINCIPAL
+========================================== */
+
+.app-container {
+    display: flex;
+    min-height: calc(100vh - 75px);
+}
+
+.sidebar {
+    width: 220px;
+    flex-shrink: 0;
+    background: var(--surface);
+    padding: 22px 16px;
+    border-right: 1px solid var(--border);
+}
+
+.sidebar h2 {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    padding: 10px 12px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.sidebar li:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    padding: 24px;
+}
+
+.main-content > section {
+    margin-bottom: var(--spacing);
+}
+
+
+/* ==========================================
+   5. TÍTULOS DE SECCIONES
+========================================== */
+
+.main-content > section > h2 {
+    font-size: 18px;
+    color: var(--primary);
+    margin-bottom: 14px;
+}
+
+
+/* ==========================================
+   6. DASHBOARD Y MÉTRICAS
+========================================== */
+
+.metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.metric-card {
+    background: var(--surface);
+    padding: 17px 19px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+}
+
+.metric-card h3 {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.metric-card p {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+
+/* ==========================================
+   7. GRÁFICA
+========================================== */
+
+.chart-section {
+    background: var(--surface);
+    padding: 20px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    width: 100%;
+    overflow: hidden;
+}
+
+.chart-section h2 {
+    font-size: 18px;
+    color: var(--primary);
+    margin-bottom: 12px;
+}
+
+.chart-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+#glucose-chart {
+    width: 100%;
+    min-height: 350px;
+}
+
+
+/* ==========================================
+   8. COMPONENTES DE FORMULARIO
+========================================== */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.form-group label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    min-width: 0;
+    padding: 10px;
+    border: 1px solid #D5DEE9;
+    border-radius: 8px;
+    background: #FFFFFF;
+    color: var(--text-primary);
+    font-size: 13px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(23, 75, 121, 0.10);
+}
+
+
+/* ==========================================
+   9. REGISTRO DE GLUCOSA
+========================================== */
+
+.registration-section {
+    background: var(--surface);
+    padding: 18px 20px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.registration-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.registration-header h2 {
+    font-size: 17px;
+    color: var(--primary);
+}
+
+.registration-header span {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.registration-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1.5fr auto;
+    gap: 12px;
+    align-items: end;
+}
+
+.registration-form .form-group {
+    margin-bottom: 0;
+}
+
+.register-button {
+    padding: 10px 17px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background 0.2s;
+}
+
+.register-button:hover {
+    background: var(--primary-dark);
+}
+
+
+/* ==========================================
+   10. FILTROS
+========================================== */
+
+.filters-section {
+    background: var(--surface);
+    padding: 18px 20px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.filters-section h2 {
+    font-size: 17px;
+    color: var(--primary);
+    margin-bottom: 14px;
+}
+
+.filters-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) auto;
+    gap: 12px;
+    align-items: end;
+}
+
+.filters-container .form-group {
+    margin-bottom: 0;
+}
+
+.filters-container button {
+    padding: 10px 16px;
+    background: var(--primary-light);
+    color: var(--primary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.filters-container button:hover {
+    background: #DDECF9;
+}
+
+
+/* ==========================================
+   11. HISTORIAL
+========================================== */
+
+.history-section {
+    background: var(--surface);
+    padding: 18px 20px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.history-header h2 {
+    font-size: 17px;
+    color: var(--primary);
+}
+
+.history-header p {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 3px;
+}
+
+.history-label {
+    background: var(--primary-light);
+    color: var(--primary);
+    font-size: 11px;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.history-table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 13px;
+}
+
+.history-table th {
+    background: #F5F8FC;
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 10px 12px;
+    white-space: nowrap;
+}
+
+.history-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+.history-table tbody tr:hover {
+    background: #F8FAFC;
+}
+
+.history-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* ==========================================
+   12. RESPONSIVE DESIGN
+========================================== */
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+
+    .registration-form {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .register-button {
+        width: 100%;
+    }
+
+    .filters-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .filters-container button {
+        width: 100%;
+    }
+
+}
+
+
+/* TABLET PEQUEÑA Y MÓVIL */
+
+@media (max-width: 768px) {
+
+    .app-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 12px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .sidebar h2 {
+        display: none;
+    }
+
+    .sidebar ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .sidebar li {
+        margin: 0;
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    .main-content {
+        padding: 16px;
+    }
+
+    .metrics {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+}
+
+
+/* MÓVIL */
+
+@media (max-width: 520px) {
+
+    .header {
+        padding: 14px 18px;
+    }
+
+    .header h1 {
+        font-size: 20px;
+    }
+
+    .main-content {
+        padding: 12px;
+    }
+
+    .metrics {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .metric-card {
+        padding: 13px;
+    }
+
+    .metric-card p {
+        font-size: 20px;
+    }
+
+    .registration-form,
+    .filters-container {
+        grid-template-columns: 1fr;
+    }
+
+    .registration-section,
+    .filters-section,
+    .history-section,
+    .chart-section {
+        padding: 15px;
+    }
+
+    .history-table {
+        min-width: 520px;
+    }
+
+    #glucose-chart {
+        min-height: 300px;
+    }
+
+}
+
+/* ==========================================
+   13. ACCIONES DEL HISTORIAL
+========================================== */
+
+.history-table td:last-child {
+    white-space: nowrap;
+}
+
+.history-table td button {
+    padding: 6px 11px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid transparent;
+    margin-right: 5px;
+    transition: 0.2s ease;
+}
+
+/* BOTÓN EDITAR */
+
+.history-table .edit-button {
+    background: #EFF6FC;
+    color: #174B79;
+    border-color: #D7E7F5;
+}
+
+.history-table .edit-button:hover {
+    background: #DCECF9;
+}
+
+/* BOTÓN ELIMINAR */
+
+.history-table .delete-button {
+    background: #FEF2F2;
+    color: #B42318;
+    border-color: #FECACA;
+}
+
+.history-table .delete-button:hover {
+    background: #FEE2E2;
+}
+
+/* MÓVIL */
+
+@media (max-width: 520px) {
+    .history-table td button {
+        padding: 6px 9px;
+        font-size: 11px;
+    }
+}
